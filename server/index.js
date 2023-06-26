@@ -10,7 +10,10 @@ const path = require("path");
 const {fileURLToPath} = require("url");
 const authRoutes = require("./routes/auth");
 const {register} = require("./controllers/auth");
-
+const {verifyToken} = require("./middleware/auth");
+const {createPost} =require("./controllers/posts.js")
+const userRoutes = require("./routes/users.js");
+const postRoutes = require("./routes/posts");
 // Configuration 
 dotenv.config();
 const app = express();
@@ -36,9 +39,11 @@ const upload = multer({storage});
 
 //routes with files
 app.post("/auth/register",upload.single("picture"),register);
-
+app.post("/posts",verifyToken,upload.single("picture"),createPost);
 //routes
 app.use("/auth",authRoutes);
+app.use("/users",userRoutes);
+app.use("/posts",postRoutes);
 //mongoose
 const PORT = process.env.PORT || 6001;
 mongoose.connect(process.env.MONGO_URI,{
