@@ -28,6 +28,13 @@ To install and run the SocialSpace project locally, you need to install both the
 3. Install the backend dependencies: `npm install`
 4. Start the backend server: `npm start`
 
+### MongoDB Setup
+
+1. Make sure you have MongoDB installed on your machine. You can download it from the official website: [https://www.mongodb.com/](https://www.mongodb.com/)
+2. Create a MongoDB database for the project.
+3. In the `server` directory, open the `.env` file.
+4. Update the `MONGODB_URI` variable with the connection URI for your MongoDB database.
+
 ### Frontend
 
 1. Open a new terminal.
