@@ -7,9 +7,11 @@ const multer = require("multer");
 const helmet = require("helmet");
 const morgan = require("morgan");
 const path = require("path");
+
 //controller
 const {register} = require("./controllers/auth");
-const {createPost} =require("./controllers/posts.js")
+const {createPost} =require("./controllers/posts.js");
+
 //routes
 const postRoutes = require("./routes/posts");
 const userRoutes = require("./routes/users")
